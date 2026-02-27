@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
 public class EmployeeMapper {
 
     public Employee toEntity(EmployeeRequest request) {
-        Employee e = new Employee();
-        e.setFirstName(request.getFirstName());
-        e.setMiddleName(request.getMiddleName());
-        e.setLastName(request.getLastName());
-        e.setSecondLastName(request.getSecondLastName());
-        e.setAge(request.getAge());
-        e.setGender(request.getGender());
-        e.setBirthDate(request.getBirthDate());
-        e.setPosition(request.getPosition());
-        e.setActive(request.getActive());
-        return e;
+        return Employee.builder()
+                .firstName(request.getFirstName())
+                .middleName(request.getMiddleName())
+                .lastName(request.getLastName())
+                .secondLastName(request.getSecondLastName())
+                .age(request.getAge())
+                .gender(request.getGender())
+                .birthDate(request.getBirthDate())
+                .position(request.getPosition())
+                .active(request.getActive())
+                .build();
     }
 
     public EmployeeResponse toResponse(Employee e) {
